@@ -1,0 +1,13 @@
+command:
+  - python
+  - app.py
+
+env:
+  - name: SERVING_ENDPOINT
+    valueFrom: hr-policy-agent-endpoint   # references the resource defined below
+
+resources:
+  - name: "hr-policy-agent-endpoint"
+    serving_endpoint:
+      name: hr-policy-agent-endpoint
+      permission: "CAN_QUERY"             # only needs query permission
